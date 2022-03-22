@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root{
+	--bg-clr: #c9fdb1;
+	--white: #fff;
+	--srch-bg: #6dd137;
+	--text-clr: #b5b5b5;
+	--srch-hvr: #61cc26;
+	--close-hvr: #6dd137;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;/*removing default border for element as inputs*/
+	list-style: none;
+	font-family: 'Open Sans', sans-serif;
+}
+
+::placeholder { 
+  color: var(--text-clr);
+  opacity: 1;
+}
+
+body{
+	background: var(--bg-clr);
+}
+
+.wrapper{
+	display: flex;
+	height: 100vh;
+	/* width: 100%; */
+	align-items: center;
+	justify-content: center;
+}
+
+.search_box_wrap{
+	position: relative;
+	width: 350px;
+	height: 60px;
+}
+
+/* .search_box_wrap .search_box{
+	width: 100%;
+	height: 60px;
+} */
+
+.search_box_wrap .search_box .input_search{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	border: 0;
+	height: 60px;
+	padding: 12px 0px;
+	padding-right: 60px;
+	font-size: 16px;
+	border-radius: 35px;
+	color: var(--text-clr);
+	/* transition: all 0.2s ease; */
+}
+
+.search_box_wrap .icon{
+	display: flex;
+}
+
+.search_box_wrap .search_btn,
+.search_box_wrap .close_btn{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.search_box_wrap .search_btn{
+	color: var(--white);
+	background: var(--srch-bg);
+	top: 0;
+	right: 0px;
+	font-size: 20px;
+	z-index: 999;
+}
+
+.search_box_wrap .close_btn{
+	color: var(--srch-bg);
+	background: var(--white);
+	top: 0px;
+	right: 0px;
+    font-size: 25px;
+    opacity: 0;
+}
+
+.search_box_wrap .search_btn:hover{
+	background: var(--white);
+	color: var(--srch-hvr);
+}
+
+.search_box_wrap .close_btn:hover{
+	background: var(--close-hvr);
+	color: var(--white);
+}
+
+.search_box_wrap.active .search_btn{
+	top: 5px;
+	right: 5px;
+	width: 50px;
+	height: 50px;
+}
+
+.search_box_wrap.active .close_btn{
+	opacity: 1;
+  	transform: rotate(360deg);
+  	right: -90px;
+}
+
+.search_box_wrap.active .search_box .input_search{
+	padding: 12px 25px;
+	padding-right: 70px;
+  	width: 100%;
+  	transition: all 0.5s ease;
+	transition-delay: 0.75s;
+}
+/* 
+	tranistion: makes you change property value smootly over a given duration
+	# To work, you need:
+	- CSS property you want to add the effect to (ex. with).
+	- Duration of effect
+	- So, once the width value changes (ex. by hover effect) this transistion appears. 
+*/
+
+@media screen and (max-width: 600px) {
+	.wrapper {
+		max-width: 70% !important;
+	}
+}
